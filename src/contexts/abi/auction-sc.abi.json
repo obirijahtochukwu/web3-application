@@ -1,0 +1,288 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.69.0-nightly",
+            "commitHash": "7aa413d59206fd511137728df3d9e0fd377429bd",
+            "commitDate": "2023-02-19",
+            "channel": "Nightly",
+            "short": "rustc 1.69.0-nightly (7aa413d59 2023-02-19)"
+        },
+        "contractCrate": {
+            "name": "auction-sc",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "multiversx-sc",
+            "version": "0.40.1"
+        }
+    },
+    "name": "AuctionSc",
+    "constructor": {
+        "inputs": [
+            {
+                "name": "fixed_bid_amount_opt",
+                "type": "optional<BigUint>",
+                "multi_arg": true
+            },
+            {
+                "name": "starting_bid_price_opt",
+                "type": "optional<BigUint>",
+                "multi_arg": true
+            },
+            {
+                "name": "max_bid_amount_opt",
+                "type": "optional<BigUint>",
+                "multi_arg": true
+            },
+            {
+                "name": "bid_time_threshold_opt",
+                "type": "optional<u64>",
+                "multi_arg": true
+            }
+        ],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "placeBid",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "EGLD"
+            ],
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "claimAsset",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "auction_id",
+                    "type": "u64"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getMaxBidAmount",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "getFixedBidAmount",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "getBidTimeThreshold",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "getStartingBidPrice",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "getEnabled",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "getIsAuctionOpen",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "getAuctionInfo",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "auction_id",
+                    "type": "u64"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "AuctionInfo"
+                }
+            ]
+        },
+        {
+            "name": "getAuctionHistory",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<AuctionInfo>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getLastAuctionId",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "getNewAuctionId",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "enableSC",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "disableSC",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "takeBackAsset",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "asset",
+                    "type": "EsdtTokenPayment"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "createAuction",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "asset",
+                    "type": "EsdtTokenPayment"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "withdrawFunds",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "user",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "closeCurrentAuctionOwner",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        }
+    ],
+    "events": [],
+    "hasCallback": false,
+    "types": {
+        "AuctionInfo": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "asset",
+                    "type": "EsdtTokenPayment"
+                },
+                {
+                    "name": "starting_price",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "last_bid_price",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "last_bid_timestamp",
+                    "type": "u64"
+                },
+                {
+                    "name": "last_bid_block",
+                    "type": "u64"
+                },
+                {
+                    "name": "start_time",
+                    "type": "u64"
+                },
+                {
+                    "name": "end_time",
+                    "type": "u64"
+                },
+                {
+                    "name": "last_bidder",
+                    "type": "Address"
+                }
+            ]
+        },
+        "EsdtTokenPayment": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "token_identifier",
+                    "type": "TokenIdentifier"
+                },
+                {
+                    "name": "token_nonce",
+                    "type": "u64"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ]
+        }
+    }
+}
