@@ -2,8 +2,6 @@ import { dAppName } from 'config';
 import { TestRoute } from 'pages/TestRoute';
 import { RouteType } from 'types';
 import { withPageTitle } from './components/PageTitle';
-import { Faq } from './pages/Faq';
-import {Admin } from './pages/Admin';
 
 import { Dashboard, Home, SignMessage, Statistics } from './pages';
 
@@ -13,9 +11,7 @@ export const routeNames = {
   statistics: '/statistics',
   signMessage: '/sign-message',
   unlock: '/unlock',
-  testRoute: '/test-route',
-  faq: '/faq',
-  admin: '/admin'
+  testRoute: '/test-route'
 };
 
 interface RouteWithTitleType extends RouteType {
@@ -48,20 +44,8 @@ export const routes: RouteWithTitleType[] = [
   },
   {
     path: routeNames.testRoute,
-    title: 'Testing Stuff',
+    title: 'Testing stuff',
     component: TestRoute,
-    authenticatedRoute: true
-  },
-  {
-    path: routeNames.faq,
-    title: 'Faq Page',
-    component: Faq,
-    authenticatedRoute: true
-  },
-  {
-    path: routeNames.admin,
-    title: 'Admin Page',
-    component: Admin,
     authenticatedRoute: true
   }
 ];

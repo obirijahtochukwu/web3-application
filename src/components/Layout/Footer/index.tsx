@@ -10,9 +10,9 @@ export const Footer = () => {
             target: '_blank'
           }}
           className='d-flex align-items-center'
-          href='https://www.linkedin.com/company/zen-web3-solutions/'
+          href='https://multiversx.com/'
         >
-          Made with <HeartIcon className='mx-1' /> by Zen Web3 Solutions
+          Made with <HeartIcon className='mx-1' /> by the MultiversX team
         </a>
       </div>
     </footer>

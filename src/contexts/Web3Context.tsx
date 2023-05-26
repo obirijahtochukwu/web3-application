@@ -1,12 +1,11 @@
 import React from 'react';
-import { AddressValue } from '@multiversx/sdk-core';
+import refreshAccount, { AddressValue } from '@multiversx/sdk-core';
 import { Address, BigUIntType, BigUIntValue, TokenIdentifierType, TokenIdentifierValue } from '@multiversx/sdk-core/out';
 import {
   useGetAccountInfo,
   useGetIsLoggedIn,
   useGetLoginInfo
 } from '@multiversx/sdk-dapp/hooks/account';
-import { refreshAccount } from '@multiversx/sdk-dapp/utils/account/refreshAccount';
 import * as scRequests from './scRequests';
 
 export interface IWeb3Context {
@@ -107,11 +106,6 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(false);
     });
   }, [isLoggedIn, address]);
-
-  React.useEffect(() => {
-    const interval = setInterval(refreshState, 3000);
-    return () => clearInterval(interval);
-  }, [lastBidder, lastBidTimestamp]);
 
   return ( //return data from variables from sc
     <Web3Context.Provider
