@@ -2,6 +2,7 @@ import {
   AbiRegistry,
   Address,
   AddressValue,
+  BigUIntValue,
   ResultsParser,
   SmartContract,
   SmartContractAbi,
@@ -15,11 +16,14 @@ import {
 import { ProxyNetworkProvider } from '@multiversx/sdk-network-providers';
 import contractAbi from './abi/auction-sc.abi.json';
 import BigNumber from 'bignumber.js';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks/account';
+import { sendTransactions } from '@multiversx/sdk-dapp/services/transactions/sendTransactions';
 
 const Provider = new ProxyNetworkProvider(network.gatewayAddress, {
   timeout: 10000
 });
 const resultsParser = new ResultsParser();
+
 
 let currentPort = '';
 if (window.location.port != '') {
@@ -43,6 +47,61 @@ const formatAbiJson = (abi: any) => {
     endpoints: abi.endpoints,
     types: abi.types
   };
+};
+
+export const usePlaceBid = async (nextPossibleBid: number) => {
+  const { account } = useGetAccountInfo();
+
+  const contract = await getSmartContractObj();
+  const interaction = contract.methodsExplicit.placeBid();
+  const { sessionId, error } = await sendTransactions({
+    transactions: [
+      interaction
+        .withNonce(account.nonce)
+        .withValue(new BigUIntValue(nextPossibleBid))
+        .withGasLimit(5_000_000)
+        .withChainID(network.chainId)
+        .buildTransaction()
+    ]
+  });
+  // setSessionId(sessionId);
+  return sessionId;
+};
+
+export const useEnableContract = async () => {
+  const { account } = useGetAccountInfo();
+
+  const contract = await getSmartContractObj();
+  const interaction = contract.methodsExplicit.enableSC();
+  const { sessionId, error } = await sendTransactions({
+    transactions: [
+      interaction
+        .withNonce(account.nonce)
+        .withGasLimit(5_000_000)
+        .withChainID(network.chainId)
+        .buildTransaction()
+    ]
+  });
+  // setSessionId(sessionId);
+  return sessionId;
+};
+
+export const useDisableContract = async () => {
+  const { account } = useGetAccountInfo();
+
+  const contract = await getSmartContractObj();
+  const interaction = contract.methodsExplicit.disableSC();
+  const { sessionId, error } = await sendTransactions({
+    transactions: [
+      interaction
+        .withNonce(account.nonce)
+        .withGasLimit(5_000_000)
+        .withChainID(network.chainId)
+        .buildTransaction()
+    ]
+  });
+  // setSessionId(sessionId);
+  return sessionId;
 };
 
 export const getAuctionInfo = async (currentAuctionId: number) => {

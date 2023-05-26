@@ -15,6 +15,7 @@ import {
   walletConnectV2ProjectId,
   sampleAuthenticatedDomains
 } from 'config';
+import { Web3Provider } from 'contexts';
 import { PageNotFound, Unlock } from 'pages';
 import { routeNames } from 'routes';
 import { routes } from 'routes';
@@ -36,23 +37,25 @@ export const App = () => {
             }}
           >
             {/* insert web3 context */}
-            <Layout>
-              <AxiosInterceptorContext.Listener />
-              <TransactionsToastList />
-              <NotificationModal />
-              <SignTransactionsModals className='custom-class-for-modals' />
-              <Routes>
-                <Route path={routeNames.unlock} element={<Unlock />} />
-                {routes.map((route, index) => (
-                  <Route
-                    path={route.path}
-                    key={'route-key-' + index}
-                    element={<route.component />}
-                  />
-                ))}
-                <Route path='*' element={<PageNotFound />} />
-              </Routes>
-            </Layout>
+            <Web3Provider>
+              <Layout>
+                <AxiosInterceptorContext.Listener />
+                <TransactionsToastList />
+                <NotificationModal />
+                <SignTransactionsModals className='custom-class-for-modals' />
+                <Routes>
+                  <Route path={routeNames.unlock} element={<Unlock />} />
+                  {routes.map((route, index) => (
+                    <Route
+                      path={route.path}
+                      key={'route-key-' + index}
+                      element={<route.component />}
+                    />
+                  ))}
+                  <Route path='*' element={<PageNotFound />} />
+                </Routes>
+              </Layout>
+            </Web3Provider>
           </DappProvider>
         </Router>
       </AxiosInterceptorContext.Interceptor>
