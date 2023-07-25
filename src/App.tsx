@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import {
   AxiosInterceptorContext, // using this is optional
   DappProvider,
@@ -15,19 +15,33 @@ import {
   walletConnectV2ProjectId,
   sampleAuthenticatedDomains
 } from 'config';
-import { PageNotFound, Unlock } from 'pages';
+import { Auction, Faqs, Login, PageNotFound, Unlock } from 'pages';
 import { routeNames } from 'routes';
 import { routes } from 'routes';
 import { EnvironmentsEnum } from 'types';
 
 export const App = () => {
+
+  if('a' === 'a'){
+    return (
+            <Router>
+
+          <Routes>
+            <Route path={'/'} element={<Navigate to='/auction' />} />
+            <Route path={'/login'} element={<Login />} />
+            <Route path={'/faqs'} element={<Faqs />} />
+            <Route path={'/auction'} element={<Auction />} />
+          </Routes>
+        </Router>
+    );
+  }
   return (
     <AxiosInterceptorContext.Provider>
       <AxiosInterceptorContext.Interceptor
         authenticatedDomanis={sampleAuthenticatedDomains}
-      >
+        >
         <Router>
-          <DappProvider
+           <DappProvider
             environment={EnvironmentsEnum.devnet}
             customNetworkConfig={{
               name: 'customConfig',
@@ -50,10 +64,10 @@ export const App = () => {
                     element={<route.component />}
                   />
                 ))}
-                <Route path='*' element={<PageNotFound />} />
+                {/* <Route path='*' element={<PageNotFound />} /> */}
               </Routes>
             </Layout>
-          </DappProvider>
+          </DappProvider> 
         </Router>
       </AxiosInterceptorContext.Interceptor>
     </AxiosInterceptorContext.Provider>

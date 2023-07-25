@@ -3,7 +3,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 
-export const PageNotFound = () => {
+
+export const LOgin = () => {
   const { pathname } = useLocation();
 
   return (
@@ -18,7 +19,7 @@ export const PageNotFound = () => {
                   className='mx-auto text-muted fa-3x mb-2'
                 />
               </div>
-              <span className='h4 empty-heading mt-3'>Page not found</span>
+              <span className='h4 empty-heading mt-3'>Page found</span>
               <span className='empty-details'>{pathname}</span>
             </div>
           </div>
@@ -27,4 +28,3 @@ export const PageNotFound = () => {
     </div>
   );
 };
-

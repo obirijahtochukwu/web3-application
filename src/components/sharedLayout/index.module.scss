@@ -1,0 +1,117 @@
+@import "../../styles/theme.scss";
+
+.container {
+  position: relative;
+  // display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top:  #{scaleXL(25)};
+  background: $deamBlue;
+color: $white;
+}
+
+.blur1 {
+    position: absolute;
+  content: '';
+  top:   #{scaleXL(39)};
+  left:   #{scaleXL(-51)};
+  width:   #{scaleXL(459)};
+  height:   #{scaleXL(512)};
+  background: #5724C3;
+  filter: blur(400px);
+  border-radius:   #{scaleXL(512)};
+}
+
+.container::before {
+    position: absolute;
+  content: '';
+  bottom:   #{scaleXL(346)};
+  right:   #{scaleXL(-51)};
+  width:   #{scaleXL(459)};
+  height:   #{scaleXL(512)};
+  margin-top:   #{scaleXL(100)};
+  background: #A716AA;
+  filter: blur(400px);
+  z-index: 0;
+  border-radius:   #{scaleXL(512)};
+}
+
+.flex{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 #{scaleXL(40)};
+  max-width: #{scaleXL(1519)};
+  @include flexCenterBetween();
+}
+
+.logo {
+  @include flexCenter();
+  gap: #{scaleXL(6.32)};
+  @include text400();
+  font-size: #{scaleXL(26.37)};
+
+  img {
+    height: #{scaleXL(60.981)};
+    width: #{scaleXL(60.981)};
+  }
+}
+
+.urls {
+  @include flexCenter();
+  gap: #{scaleXL(60)};
+}
+
+.url {
+  cursor: pointer;
+  @include flexCenter();
+  gap: #{scaleXL(8)};
+   @include text400();
+  font-size: #{scaleXL(18)};
+
+  img {
+    height: #{scaleXL(28)};
+    width: #{scaleXL(27)};
+  }
+}
+
+.logout {
+  @include flexCenter();
+  gap: #{scaleXL(8)};
+   @include text500();
+   color: #B1B3B9;
+  font-size: #{scaleXL(18)};
+  cursor: pointer;
+
+  img {
+    height: #{scaleXL(24)};
+    width: #{scaleXL(24)};
+  }
+}
+
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: #{scaleXL(40)};
+  max-width: #{scaleXL(1520)};
+  border-top: 1px dashed #222626;
+  @include flexCenterBetween();
+
+   @include text400();
+   color: #B1B3B9;
+  font-size: #{scaleXL(16)};
+}
+
+.urlText {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: #{scaleXL(-15)};
+    left: 0;
+    height: #{scaleXL(1)};
+    width: 60%;
+border-bottom: 1px dashed $white;
+  }
+}

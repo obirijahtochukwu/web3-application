@@ -30,10 +30,10 @@
     }
   },
   "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:@typescript-eslint/recommended"
+    // "prettier",
+    // "plugin:prettier/recommended",
+    // "plugin:react-hooks/recommended"
   ],
   "plugins": ["react-hooks", "prettier", "import"],
   "rules": {
@@ -70,8 +70,8 @@
     "react/prop-types": "off",
     "react/display-name": "off",
     // "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
+    // "quotes": ["error", "double"],
+    "semi": ["error", "never"],
     "object-curly-newline": "off",
     "arrow-body-style": "off",
     "react/jsx-props-no-spreading": "off",

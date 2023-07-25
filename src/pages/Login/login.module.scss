@@ -1,0 +1,106 @@
+@import "../../styles/theme.scss";
+
+.container {
+  @include BgImgContain();
+  @include flexCenter();
+  justify-content: center;
+  background-size: cover !important;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20vh 0;
+}
+
+.loginBox {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  max-width: #{scaleXL(758)};
+  padding: #{scaleXL(159)} #{scaleXL(80)} #{scaleXL(80)} #{scaleXL(80)};
+  border-radius: #{scaleXL(20)};
+  border: #{scaleXL(2)} solid $lightWhite;
+  background: $transparent;
+  backdrop-filter: blur(#{scaleXL(20)});
+  color: white !important;
+}
+
+.logo {
+  position: absolute;
+  top: #{scaleXL(-100)};
+  left: #{scaleXL(269)};
+  width: #{scaleXL(227)};
+  height: #{scaleXL(199)};
+}
+
+.title {
+  font-size: #{scaleXL(42)};
+  font-family: $viet;
+  font-weight: 600;
+  text-align: center;
+}
+
+.text {
+  font-size: #{scaleXL(18)};
+  font-family: $viet;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  width: #{scaleXL(333)};
+  color: $grey;
+}
+
+.bar {
+  @include flexCenter();
+  gap: #{scaleXL(16)};
+  height: #{scaleXL(50)};
+  margin: #{scaleXL(40)} 0 #{scaleXL(25)} 0;
+}
+
+.barImg {
+  width: #{scaleXL(221)};
+  height: #{scaleXL(1)};
+  border-spacing: 47px;
+  border-bottom: 1px dashed $lightBlue;
+}
+
+.barTitle {
+  font-size: #{scaleXL(24)};
+  font-family: $inter;
+  font-weight: 500;
+  text-align: center;
+  line-height: 0px;
+  background-color: black;
+  white-space: nowrap;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: #{scaleXL(24)};
+}
+
+.btn {
+  cursor: pointer;
+  @include flexCenter();
+  gap: #{scaleXL(10)};
+  width: #{scaleXL(597)};
+  height: #{scaleXL(78)};
+  background: $darkBlue;
+  padding: 0 #{scaleXL(20)};
+  border-radius: #{scaleXL(8)};
+  backdrop-filter: blur(#{scaleXL(45)});
+
+  font-size: #{scaleXL(20)};
+  font-family: $inter;
+  font-weight: 500;
+}
+
+.btnLogo {
+  height: #{scaleXL(30)};
+  width: #{scaleXL(30)};
+}
+
+.btnIcon {
+  height: #{scaleXL(24)};
+  width: #{scaleXL(24)};
+  margin-left: auto;
+}

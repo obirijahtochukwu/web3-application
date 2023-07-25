@@ -71,7 +71,7 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    await refreshAccount();
+    // await refreshAccount();
 
     const isAuctionOpenSC = await scRequests.getIsAuctionOpen();
     setIsAuctionOpen(isAuctionOpenSC);

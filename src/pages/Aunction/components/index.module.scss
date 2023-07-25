@@ -1,0 +1,242 @@
+@import "../../../styles/theme.scss";
+
+.UserDetailsComponent {
+@include flexCenter();
+  padding: 0 #{scaleXL(40)};
+  gap: #{scaleXL(80)};
+  max-width: #{scaleXL(1519)};
+  margin:  #{scaleXL(150)} auto;
+  @media (max-width: 1000px) {
+    align-items: start;
+  }
+}
+
+.userImg {
+  width: #{scaleXL(695)};
+  height: #{scaleXL(744)};
+  border-radius: #{scaleXL(30)};
+
+  @media (max-width: 1000px) {
+    width: 300px;
+  }
+}
+
+.aside {
+display: flex;
+flex-direction: column;
+  gap: #{scaleXL(60)};
+}
+
+.title {
+  @include text600();
+  font-size: #{scaleXL(42)};
+}
+
+.text {
+  @include text400();
+  font-size: #{scaleXL(18)};
+  color: #B1B3B9;
+  line-height:  #{scaleXL(32)};
+ max-width: #{scaleXL(653)};
+}
+
+.impressions {
+  @include flexCenter();
+  gap: #{scaleXL(20)};
+  margin-bottom: #{scaleXL(20)};
+}
+
+.impression {
+    @include flexCenter();
+    gap: #{scaleXL(10)};
+    background: #11111E;
+    padding: #{scaleXL(8)} #{scaleXL(16)};
+    border-radius: #{scaleXL(20)};
+border: 1px solid #1A1629;
+
+  @include text400();
+  font-size: #{scaleXL(16)};
+}
+
+.details {
+  @include flexCenterBetween();
+    height: #{scaleXL(296)};
+  width: 100%;
+  gap:#{scaleXL(30)} ;
+  background: #101525;
+    padding: #{scaleXL(30)};
+    border-radius: #{scaleXL(20)};
+}
+
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap:#{scaleXL(60)} ;
+  width: #{scaleXL(291)};
+  
+}
+
+.balance {
+  @include flexCenter();
+  height: #{scaleXL(57)};
+  width: 100%;
+  background: #161C30;
+    padding: #{scaleXL(14)} #{scaleXL(24)};
+    border-radius: #{scaleXL(8)};
+border: 1px solid #1E2332;
+}
+
+.balance {
+  @include text400();
+  font-size: #{scaleXL(16)};
+ color: #B1B3B9; 
+}
+
+.balanceText {
+  @include text400();
+  font-size: #{scaleXL(16)};
+ color: #B1B3B9; 
+ margin-right: 5px
+}
+.balanceNum {
+  @include text500();
+  font-size: #{scaleXL(18)};
+  color: $white;
+}
+
+.bids {
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: #{scaleXL(19)};
+}
+
+.bid {
+    @include flexCenterBetween();
+}
+
+.barImg {
+  height: #{scaleXL(236)};
+  width: 1px;
+  border-right: 1px dashed #14504E ;
+  // background-color: #B1B3B9;
+}
+
+.dates {
+  display: flex;
+  gap: #{scaleXL(16)};
+  margin-top: #{scaleXL(24)};
+  margin-bottom: #{scaleXL(60)};
+}
+
+.date {
+  @include flexCenter();
+  flex-direction: column;
+  width: fit-content;
+  background: #161C30;
+    padding: #{scaleXL(4)} #{scaleXL(10)};
+    border-radius: #{scaleXL(8)};
+border: 1px solid #1E2332;
+}
+
+.dateTitle {
+  @include text600();
+  font-size: #{scaleXL(22)};
+ color: #28DFD9; 
+}
+
+.dateText {
+  @include text400();
+  font-size: #{scaleXL(18)};
+ color: #B1B3B9; 
+}
+
+.bidBtn {
+   @include flexCenter();
+   justify-content: center;
+  width: 100%;
+  background: linear-gradient(134deg, #323FDC 0%, #B348E9 100%);
+    padding: #{scaleXL(14)} 0;
+    border-radius: #{scaleXL(8)};
+
+      @include text500();
+  font-size: #{scaleXL(18)};
+ color: $white; 
+ cursor: pointer;
+}
+
+.bided {
+  @include flexCenter();
+  justify-content: center;
+  height: 100%;
+  width:#{scaleXL(320)};
+
+     @include text600();
+  font-size: #{scaleXL(32)};
+ color: $white; 
+}
+
+// RelatedProductsComponent
+.RelatedProductsComponent {
+  display: flex;
+  flex-direction: column;
+  gap: #{scaleXL(60)};
+  width: 100%;
+  padding: #{scaleXL(40)};
+  padding-bottom:  #{scaleXL(150)};
+  max-width: #{scaleXL(1519)};
+  margin: 0 auto;
+}
+
+.products {
+    display: flex;
+  gap: #{scaleXL(30)};
+}
+
+.header {
+  @include flexCenter();
+  gap: #{scaleXL(20)};
+
+   @include text600();
+  font-size: #{scaleXL(42)};
+ color: $white; 
+}
+
+.product {
+  @include BgImgContain();
+   background-size: #{scaleXL(400)}, #{scaleXL(358)} !important;
+  width: #{scaleXL(358)};
+  height: #{scaleXL(409)};
+   display: flex;
+  flex-direction: column;
+  border: 1px solid #5724C3;
+  overflow: hidden;
+  border-radius: #{scaleXL(14.7)};
+}
+
+.productTime {
+ @include text400();
+  font-size: #{scaleXL(16)};
+ color: #B1B3B9;  
+ margin-left: auto;
+ background: $deamBlue;
+ padding: #{scaleXL(12)};
+ border-radius: 0 0 0  #{scaleXL(20)};
+}
+
+.productName {
+   @include text400();
+  font-size: #{scaleXL(12)};
+ color: #B1B3B9;  
+ margin-top: auto;
+  padding: 0 #{scaleXL(13)};
+}
+
+.productPrice {
+   @include text600();
+  font-size: #{scaleXL(22)};
+ color: $white;  
+  padding: 0 0 #{scaleXL(13)} #{scaleXL(13)};
+
+}

@@ -1,0 +1,138 @@
+:root {
+  --vw: 100vw;
+}
+
+$white: #ffffff;
+$lightWhite: rgba(255, 255, 255, 0.06);
+$black: rgb(1, 14, 10);
+$bg: #f1fcff;
+$deamBlue: #02050F;
+$darkBlue: #1b1e43;
+$lightBlue: #28dfd9;
+$grey: #dadada;
+$transparent: #51f1b81a;
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("../../public/fonts/BeVietnamPro-Black.woff");
+}
+
+$viet: "Be Vietnam Pro";
+$inter: "inter";
+
+@function scaleX($value) {
+  @return calc(#{$value}px * (var(--vw) / 390));
+}
+
+@function scaleXL(
+  $value,
+  $idealWidth: 1366,
+  $currentWidth: 100vw,
+  $maxWidth: 1400px,
+  $minWidth: 350px
+) {
+  @return calc(#{$value} * (clamp(1400px, var(--vw), 10000px) / 2000));
+}
+
+@function scaleY($value, $ideal: 1810, $current: 100vh) {
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
+}
+
+@mixin flexCenterAround() {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flexCenterBetween() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexCenterEnd() {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin BgImgContain() {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@mixin sticky() {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 0 #{scaleX(100)} #{scaleX(1)} rgb(0, 0, 0, 0.1);
+}
+
+@mixin fixed() {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+@mixin transperantInput() {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+
+@mixin spacingCenter() {
+  letter-spacing: #{scaleX(0.2)};
+  text-align: center;
+}
+
+@mixin text300() {
+  font-family: $viet;
+  font-weight: 300;
+}
+
+@mixin text400() {
+  font-family: $viet;
+  font-weight: 400;
+}
+
+@mixin text500() {
+  font-family: $viet;
+  font-weight: 500;
+}
+
+@mixin text600() {
+  font-family: $viet;
+  font-weight: 600;
+}
+
+@mixin text700() {
+  font-family: $viet;
+  font-weight: 700;
+}
+
+@mixin text900() {
+  font-family: $viet;
+  font-weight: 900;
+}
+
+@mixin easeInOut() {
+  transition: all 0.2s ease-in-out;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
