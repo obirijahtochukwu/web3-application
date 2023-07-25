@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './index.module.scss';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import styles from './index.module.scss'
+import { Link } from 'react-router-dom'
 
 interface Types {
   children: any;
@@ -30,7 +30,7 @@ export const Layout: React.FC<Types> = ({children})=> {
                  <img src={icon} alt={'styles'} />
                   <div className={window.location.pathname === url ? styles.urlText : ''}>{text}</div>
                 </Link>
-              );
+              )
             })}
           </div>
 
@@ -47,5 +47,5 @@ Terms of Service</div>
 
       </footer>
       </div>
-  );
-};
+  )
+}

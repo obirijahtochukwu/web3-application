@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from './index.module.scss';
+import React, { useState } from 'react'
+import styles from './index.module.scss'
 
 //   interface Types {
 //     y: any
@@ -12,7 +12,7 @@ export const UserDetailsComponent = ({})=> {
   const impressions = [
     {icon: '/media/auction/eye.svg', text: '25,535'},
     {icon: '/media/auction/heart.svg', text: '150'},
-  ];
+  ]
 
   const bids = [
     {text: 'Last Bid', num: '0 EGLD'},
@@ -40,7 +40,7 @@ export const UserDetailsComponent = ({})=> {
                 <img src={icon} alt="" />
                 <div className="">{text}</div>
               </div>
-            );
+            )
           })}
         </div>
 
@@ -86,8 +86,8 @@ export const UserDetailsComponent = ({})=> {
         </article>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const RelatedProductsComponent = ({})=> {
 
@@ -121,5 +121,5 @@ export const RelatedProductsComponent = ({})=> {
       })}
      </main>
     </div>
-  );
-};
+  )
+}

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Layout } from 'components/sharedLayout';
-import { RelatedProductsComponent, UserDetailsComponent } from './components/Index';
+import React from 'react'
+import { Layout } from 'components/sharedLayout'
+import { RelatedProductsComponent, UserDetailsComponent } from './components/Index'
 
 
 export const Auction = ()=> {
@@ -9,5 +9,5 @@ export const Auction = ()=> {
 <UserDetailsComponent/>
 <RelatedProductsComponent/>
     </Layout>
-  );
-};
+  )
+}

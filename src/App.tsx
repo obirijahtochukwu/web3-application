@@ -1,24 +1,23 @@
-import React from 'react';
-import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom'
 import {
   AxiosInterceptorContext, // using this is optional
   DappProvider,
   Layout
-} from 'components';
+} from 'components'
 import {
   TransactionsToastList,
   NotificationModal,
   SignTransactionsModals
-} from 'components';
+} from 'components'
 import {
   apiTimeout,
   walletConnectV2ProjectId,
   sampleAuthenticatedDomains
-} from 'config';
-import { Auction, Faqs, Login, PageNotFound, Unlock } from 'pages';
-import { routeNames } from 'routes';
-import { routes } from 'routes';
-import { EnvironmentsEnum } from 'types';
+} from 'config'
+import { Auction, Faqs, Login, PageNotFound, Unlock } from 'pages'
+import { routeNames } from 'routes'
+import { routes } from 'routes'
+import { EnvironmentsEnum } from 'types'
 
 export const App = () => {
 
@@ -33,7 +32,7 @@ export const App = () => {
             <Route path={'/auction'} element={<Auction />} />
           </Routes>
         </Router>
-    );
+    )
   }
   return (
     <AxiosInterceptorContext.Provider>
@@ -71,5 +70,5 @@ export const App = () => {
         </Router>
       </AxiosInterceptorContext.Interceptor>
     </AxiosInterceptorContext.Provider>
-  );
-};
+  )
+}
